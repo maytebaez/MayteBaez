@@ -1,0 +1,11 @@
+<div class="child-container">
+    <div class="header-container">
+        <header>
+            Editar
+        </header>
+    </div>
+    <app-product-form [product]="product" 
+                      [isEditMode]="true"
+                      (formSubmit)="onEdit($event)">
+    </app-product-form>
+</div>

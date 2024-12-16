@@ -1,0 +1,91 @@
+.form-container{
+    width: 100%;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    padding: 10px;
+}
+
+.form-label {
+    font-size: 0.75rem;
+    margin-bottom: 5px;  
+}
+
+.form-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error-label {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 5px;
+}
+
+.date-display {
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #888;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: not-allowed;
+}
+
+.submit-button{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7d125;
+    color: navy;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 30px;
+    width: 50%;
+}
+
+.clear-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #b9b9b7;
+    color: navy;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 30px;
+    width: 50%;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-left: 28%;
+}

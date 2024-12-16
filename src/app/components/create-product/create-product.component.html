@@ -1,0 +1,11 @@
+<div class="child-container">
+    <div class="header-container">
+        <header>
+            Formulario de registro
+        </header>
+    </div>
+    <app-product-form [product]="newProduct"
+                      [isEditMode]="false"
+                      (formSubmit)="onCreate($event)">
+    </app-product-form>
+</div>

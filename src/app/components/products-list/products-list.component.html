@@ -1,0 +1,26 @@
+<div class="child-container">
+    <div class="input-container">
+        <input class="text-input" 
+               type="text" 
+               [(ngModel)]="searchInput" 
+               (input)="searchProduct()" 
+               placeholder="Buscar..."
+        >
+        <button class="yellow-button" 
+                (click)="redirectTo('/create')">
+                Agregar
+        </button>
+    </div>
+  
+    <div class="table-container">
+        <app-product-table [bankProducts]="paginatedProducts" 
+                           (itemsPerPageChange)="onChangeItemsPerPage($event)"
+                           (showPopup)="onChangeShowPopup($event)">
+        </app-product-table>
+    </div>
+    @if (popupResponse.showPopup) {
+        <app-delete-popup [productId]="popupResponse.productId"
+                          (popupResponseEvent)="onConfirmDeleteProduct($event)">
+        </app-delete-popup>
+    }
+</div>

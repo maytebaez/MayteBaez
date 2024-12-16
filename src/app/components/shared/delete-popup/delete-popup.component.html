@@ -1,0 +1,9 @@
+<div class="overlay" (click)="closePopup()">
+    <div class="popup" (click)="$event.stopPropagation()">
+      <h3>¿Está seguro que quiere eliminar el producto?</h3>
+      <div class="buttons">
+        <button (click)="confirm()">Sí</button>
+        <button (click)="closePopup()">Cancelar</button>
+      </div>
+    </div>
+</div>

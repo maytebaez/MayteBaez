@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+  
+.header-content {
+  display: flex;
+  align-items: center;
+}
+  
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.title {
+  color: navy;
+  margin: 0;
+}

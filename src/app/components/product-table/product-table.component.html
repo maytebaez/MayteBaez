@@ -1,0 +1,52 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre del producto</th>
+        <th>Descripción</th>
+        <th>Fecha de liberación</th>
+        <th>Fecha de reestructuración</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        @if(bankProducts.length > 0){
+          @for(product of bankProducts; track $index){
+            <tr>
+                <td><img class="logo" [src]="product.logo" (error)="onLogoError($event)" [alt]="product.name" /></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_release | date: 'MM-dd-yyyy'}}</td>
+                <td>{{ product.date_revision | date: 'MM-dd-yyyy' }}</td>
+                <td>
+                  <app-options-button 
+                        [product]="product"
+                        (editClicked)="editProduct($event)" 
+                        (deleteClicked)="deleteProduct($event)"/>
+                </td>
+            </tr>
+          }
+        }
+        @if(bankProducts.length == 0){
+          <h3>No se encontraron productos</h3>
+        }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="footer-container">
+            <div>
+              {{ bankProducts.length }} Resultados
+            </div>
+            <div>
+              <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange($event)">
+                @for(number of itemsCountOptions; track $index){
+                  <option [value]="number">{{ number }}</option>
+                }
+              </select>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+</table>  

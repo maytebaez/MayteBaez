@@ -1,0 +1,87 @@
+<form class="form-grid" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label" for="id">Id</label>
+            <input type="text" class="form-input" formControlName="id"/>
+            @if (productForm.get('id')?.touched) {
+                @if(productForm.get('id')?.errors?.['required']){
+                    <label class="error-label">Campo requerido</label>
+                }
+                @if(productForm.get('id')?.errors?.['minlength']){
+                    <label class="error-label">Mínimo de 3 caracteres</label>
+                }
+                @if(productForm.get('id')?.errors?.['maxlength']){
+                    <label class="error-label">Máximo de 10 caracteres</label>
+                }
+                @if(existsId){
+                    <label class="error-label">Id ya existe</label>
+                }
+            }
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="name">Nombre</label>
+            <input class="form-input" formControlName="name" type="text"/>
+            @if(productForm.get('name')?.touched){
+                @if(productForm.get('name')?.errors?.['required']){
+                    <label class="error-label">Campo requerido</label>
+                }
+                @if(productForm.get('name')?.errors?.['minlength']){
+                    <label class="error-label">Mínimo 10 caracteres</label>
+                }
+                @if(productForm.get('name')?.errors?.['maxlength']){
+                    <label class="error-label">Máximo 100 caracteres</label>
+                }
+            }
+         </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="description">Descripción</label>
+          <input type="text" class="form-input" formControlName="description"/>
+            @if(productForm.get('description')?.touched){
+                @if(productForm.get('description')?.errors?.['required']){
+                    <label class="error-label">Campo requerido</label>
+                }
+                @if(productForm.get('description')?.errors?.['minlength']){
+                    <label class="error-label">Mínimo 10 caracteres</label>
+                }
+                @if(productForm.get('description')?.errors?.['maxlength']){
+                    <label class="error-label">Máximo 100 caracteres</label>
+                }
+            }
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="logo">Logo</label>
+          <input type="text" class="form-input" formControlName="logo"/>
+            @if(productForm.get('logo')?.touched && 
+                productForm.get('logo')?.errors?.['required']){
+                <label class="error-label">Campo requerido</label>
+            }
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" id="date_release" for="date_release">Fecha de liberación</label>
+          <input (ngModelChange)="setRevisionDate()" type="date" class="form-input" formControlName="date_release"/>
+            @if(productForm.get('date_release')?.touched){
+                @if(productForm.get('date_release')?.errors?.['required']){
+                    <label class="error-label">Campo requerido</label>
+                }
+                @if(productForm.get('date_release')?.errors?.['invalidDate']){
+                    <label class="error-label">La fecha debe ser igual o mayor a la de hoy</label>
+                }
+            }
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="date_revision">Fecha de revisión</label>
+          <div class="date-display">{{product.date_revision |  date: 'MM-dd-yyyy' }}</div>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <button class="submit-button" type="submit">Guardar</button>
+        @if(!isEditMode){
+            <button class="clear-button" (click)="clearBankProduct()">Reiniciar</button>
+        }
+        <button class="clear-button" (click)="redirectTo('/products-list')">Atrás</button>
+    </div>
+</form>
